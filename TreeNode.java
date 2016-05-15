@@ -1,4 +1,4 @@
-package com.demo;
+package com.leetcode;
 
 /**
  * Created by xxhuang on 2016/4/28.
