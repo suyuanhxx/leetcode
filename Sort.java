@@ -55,7 +55,7 @@ public class Sort {
                         int temp = src[j];
                         src[j] = src[j + 1];
                         src[j + 1] = temp;
-                        falg = true;
+                        flag = true;
                     }
                 }
             }
