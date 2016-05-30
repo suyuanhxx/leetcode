@@ -38,6 +38,29 @@ public class Sort {
             }
         }
     }
+    
+    /**
+     * 改进的冒泡排序算法
+     * 
+     **/
+    public static void improvedBubbleSort(int[] src) {
+        if (src.length > 0) {
+            int length = src.length;
+            boolean flag = true;
+            for (int i = 1; i < length && flag; i++) 
+            {
+                flag = false;
+                for (int j = 0; j < length - i; j++) {
+                    if (src[j] > src[j + 1]) {
+                        int temp = src[j];
+                        src[j] = src[j + 1];
+                        src[j + 1] = temp;
+                        falg = true;
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * 快速排序，时间复杂度O(nlogn)，最坏时间复杂度O(n2)，平均时间复杂度O(nlogn)，算法不具稳定性
