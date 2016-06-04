@@ -1,12 +1,12 @@
-package com.dog.demo;
+package com.freedom.leetcode;
+
 /**
  * 七种排序算法Java版
- *
  * @author Huangxiaoxu
  *
  */
-
 public class Sort {
+
     /**
      * 打印数组
      *
@@ -38,16 +38,16 @@ public class Sort {
             }
         }
     }
-    
+
     /**
      * 改进的冒泡排序算法
-     * 
+     *
      **/
     public static void improvedBubbleSort(int[] src) {
         if (src.length > 0) {
             int length = src.length;
             boolean flag = true;
-            for (int i = 1; i < length && flag; i++) 
+            for (int i = 1; i < length && flag; i++)
             {
                 flag = false;
                 for (int j = 0; j < length - i; j++) {
@@ -70,30 +70,34 @@ public class Sort {
      * @param end
      */
     public static void quickSort(int[] src, int begin, int end) {
+        int pos;
         if (begin < end) {
-            int key = src[begin];
-            int i = begin;
-            int j = end;
-            while (i < j) {
-                while (i < j && src[j] > key) {
-                    j--;
-                }
-                if (i < j) {
-                    src[i] = src[j];
-                    i++;
-                }
-                while (i < j && src[i] < key) {
-                    i++;
-                }
-                if (i < j) {
-                    src[j] = src[i];
-                    j--;
-                }
-            }
-            src[i] = key;
-            quickSort(src, begin, i - 1);
-            quickSort(src, i + 1, end);
+            pos = partition(src,begin,end);
+            quickSort(src, begin, pos - 1);
+            quickSort(src, pos + 1, end);
         }
+    }
+
+    /**
+     * 分治思想，查找支点
+     * @param data
+     * @param low
+     * @param high
+     * @return
+     */
+    private static int partition(int data[],int low,int high){
+        int key = data[low];
+        while(low<high){
+            while(low<high && data[high]>key) //从右往左
+                high--;
+            data[low] = data[high];
+
+            while(low<high && data[low]<key)  //从左往右
+                low++;
+            data[high] = data[low];
+        }
+        data[low] = key;
+        return low;
     }
 
     /**

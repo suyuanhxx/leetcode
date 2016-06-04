@@ -1,128 +1,11 @@
-package com.leetcode;
+package com.freedom.leetcode;
 /**
  * Created by xxhuang on 2016/4/28.
  */
+
 import java.util.*;
 
 public class Solution {
-
-
-    //二叉树倒置
-    public TreeNode invertTree(TreeNode root) {
-        if(null==root)return null;
-        TreeNode result = new TreeNode(root.val);
-        if(null!=root.left && null!=root.right){
-            result.left=invertTree(root.right);
-            result.right=invertTree(root.left);
-        }
-        if(null!=root.left && null==root.right){
-            result.right=invertTree(root.left);
-        }
-        if(null==root.left && null!=root.right){
-            result.left=invertTree(root.right);
-        }
-        return result;
-    }
-
-    //二叉树层次遍历
-    public void printTreeNode(TreeNode root){
-        if(null==root)return;
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        q.add(root);
-        while (!q.isEmpty()){
-            TreeNode temp = q.remove();
-            System.out.println(temp.val);
-            if(null!=temp.left && null!=temp.right){
-                q.add(temp.left);
-                q.add(temp.right);
-            }
-            if(null!=temp.left && null==temp.right){
-                q.add(root.left);
-            }
-            if(null==temp.left && null!=temp.right){
-                q.add(temp.right);
-            }
-        }
-    }
-
-    public void moveZeroes(int[] nums) {
-        int len = nums.length;
-        int i=0;
-        if(0==len)return;
-        while(i<len){
-            if(0==nums[i]){
-                int j=i;
-                for(;j+1<=len-1;j++)
-                {
-                    nums[j] = nums[j+1];
-                }
-                nums[j]=0;
-                len--;
-            }
-            else{
-                i++;
-            }
-        }
-    }
-
-    public void deleteNode(ListNode node) {
-        if(null==node)return;
-        ListNode next = node.next;
-        while(null!=next)
-        {
-            node.val = next.val;
-            node = next;
-            next = next.next;
-        }
-    }
-
-    public void deleteNode1(ListNode node) {
-        if(null==node)return;
-        if(null==node.next){
-            node=null;
-            return;
-        }
-        else{
-            ListNode next = node.next;
-            node.val = next.val;
-            node.next = next;
-            deleteNode(next);
-        }
-        node = null;
-    }
-
-    //单链表反转LeetCode OJ 206
-    public ListNode reverseList(ListNode head){
-        if(null==head)return null;
-        ListNode result =null;
-        ListNode p=null;
-        ListNode q=head;
-        while(null!=head){
-            q = head.next;
-            result =new ListNode(head.val);
-            result.next = p;
-            p=result;
-            head = q;
-        }
-        return result;
-    }
-
-
-    //字符串反转
-    public String reversString(String s){
-        //StringBuilder str=new StringBuilder(s);
-        //return str.reverse().toString();
-        char[] str = s.toCharArray();
-        int len = s.length()-1;
-        for(int i=(len-1)>>1;i>=0;i--){
-            int j = len-i;
-            char a = str[i];
-            char b = str[j];
-            str[j] = a;
-            str[i] = b;
-        }
-        return String.valueOf(str);
-    }
 
     public boolean isPowOfTwo(int n){
         //if(0==n)return true;
@@ -132,9 +15,7 @@ public class Solution {
         //    n=n>>1;
         //}
         //return count==1;
-
         return n>0 && ((n&(n-1))==0);
-
     }
 
     public boolean isPowOfThree(int n){
@@ -149,49 +30,6 @@ public class Solution {
             }
         }
         return p;
-    }
-
-    //前序遍历和中序遍历构造二叉树 LeetCodeOJ 105
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return helper(preorder,0,preorder.length-1,inorder,0,inorder.length-1);
-    }
-    public TreeNode helper(int[] preorder,int i,int j,int[] inorder,int k,int v){
-        if(i>j)return null;
-        if(i==j)return new TreeNode(preorder[i]);
-        int index=k;
-        for(;index<=v;index++){
-            if(preorder[i]==inorder[index])
-                break;
-        }
-        TreeNode root = new TreeNode(preorder[i]);
-        root.left = helper(preorder,i+1,index-k+i,inorder,k,index-1);
-        root.right = helper(preorder,index-k+i+1,j,inorder,index+1,v);
-        return root;
-    }
-
-    public void preOrder(TreeNode root){
-        if(null==root)return;
-        System.out.print(root.val+" ");
-        if(null!=root.left)
-            preOrder(root.left);
-        if(null!=root.right)
-            preOrder(root.right);
-    }
-    public void inOrder(TreeNode root){
-        if(null==root)return;
-        if(null!=root.left)
-            inOrder(root.left);
-        System.out.print(root.val+" ");
-        if(null!=root.right)
-            inOrder(root.right);
-    }
-    public void postOrder(TreeNode root){
-        if(null==root)return;
-        if(null!=root.left)
-            postOrder(root.left);
-        if(null!=root.right)
-            postOrder(root.right);
-        System.out.print(root.val+" ");
     }
 
     //LeetCode 242 Valid Anagram
@@ -326,7 +164,7 @@ public class Solution {
     public int romantoInteger(String s){
         int result = 0,n=0;
         if(s.length()<=0)return result;
-        Map<Character,Integer> map = new HashMap();
+        HashMap<Character,Integer> map = new HashMap();
         map.put('I',1);
         map.put('V',5);
         map.put('X',10);
@@ -351,47 +189,49 @@ public class Solution {
         return result;
     }
 
-    //260 Single Number
-    public int[] singleNumber(int[] nums){
-        int[] result=new int[nums.length];
-        if(nums.length<=0)return null;
-        int index=0;
-        for(int i=0;i<nums.length;i++){
-            int j=0;
-            int count=0;
-            while(j<nums.length){
-                if(nums[j]==nums[i])
-                    count++;
-                j++;
-            }
-            if(count==1) {
-                result[index++]=nums[i];
-            }
+    //9. Palindrome Number
+    public boolean isPalindrome(int x) {
+        String str = String.valueOf(x);
+        int len = str.length();
+        if(0==len)return false;
+        int i=0,j=len-1;
+        for(;i<len/2;i++,j--){
+            if(str.charAt(i)!=str.charAt(j))
+                return false;
         }
-        return Arrays.copyOfRange(result,0,index);
+        return true;
     }
-    public int[] singleNumber2(int[] nums){
-        int[] result=new int[nums.length];
-        if(nums.length<=0)return null;
-        Arrays.sort(nums);
-        int index=0;
-        int i=0,j=0;
-        while(i<nums.length) {
-            j = i + 1 < nums.length ? i + 1 : i - 1;
-            if (nums[j] != nums[i]) {
-                if (i == 0) result[index++] = nums[i];
-                else {
-                    if (nums[i] != nums[i - 1]) {
-                        result[index++] = nums[i];
-                    }
-                }
-            }
-            i++;
+
+    public boolean isPalindrome2(int x) {
+        //HashMap a = new HashMap<>();
+        HashSet aa = new HashSet();
+        int i=x,j=0;
+        while(i>=10){
+            i=i/10;
+            j++;
         }
-        return Arrays.copyOfRange(result,0,index);
+        //bits=j
+        int bits = (int)Math.log10((double)x);
+        while(j>0){
+            int k = x%10;
+            int temp = (int)Math.pow(10,j);
+            i = (x-x%temp) / temp;
+            if(k!=i)
+                return false;
+            x = (x - x%10*temp)/10;
+            j-=2;
+        }
+        return true;
     }
 
     public static void main(String[]args){
+        HashMap<Integer,Integer> map  = new HashMap();
+        map.put(1,1);
+        map.put(1,2);
+        int q = map.get(1);
+        String sre= "s";
+        StringBuilder sb = new StringBuilder("aaa");
+        StringBuffer sf = new StringBuffer("aaa");
         Solution s = new Solution();
         TreeNode root = new TreeNode(4);
         root.left = new TreeNode(7);
@@ -414,14 +254,21 @@ public class Solution {
         ls1.next = ls2;
         ls2.next = ls3;
         //ListNode temp = s.reverseList(ls1);
-        int n=13;
         //System.out.print(b);
         //System.out.print(s.isPowOfThree(27));
         System.out.println(s.titleToNumber("AC"));
         System.out.println(s.romantoInteger("IX"));
-        int[] aa = s.singleNumber(new int[]{1, 2, 3, 5, 3,4,2,1});
+        ArrayProblems ap = new ArrayProblems();
+        int[] aa = ap.singleNumber(new int[]{1, 2, 3, 5, 3,4,2,1});
         System.out.println(4^3);
+        LinkProblems lk = new LinkProblems();
+        //lk.addTwoNumbers(ls, ls1);
+        //ap.findMedianSortedArrays(new int[]{},new int[]{2,3});
+        System.out.println(s.isPalindrome2(1221));
+        System.out.println(Math.pow(2,7)-1);
+        LinkedList linkedList = new LinkedList();
+        List al = new ArrayList();
+        Vector v = new Vector();
     }
-
 
 }
