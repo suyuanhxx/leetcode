@@ -2,6 +2,10 @@ package com.freedom.leetcode; /**
  * Created by xxhuang on 2016/4/28.
  */
 
+import com.freedom.leetcode.link.LinkNode;
+import com.freedom.leetcode.link.LinkProblems;
+import com.freedom.leetcode.tree.TreeNode;
+
 import java.util.*;
 
 public class Solution {

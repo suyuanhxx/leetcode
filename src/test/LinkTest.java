@@ -1,10 +1,10 @@
 
 
+import com.freedom.leetcode.link.SingleLink;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.freedom.leetcode.LinkNode;
-import com.freedom.leetcode.LinkProblems;
+import com.freedom.leetcode.link.LinkNode;
 
 /**
  * REVIEW
@@ -15,12 +15,12 @@ import com.freedom.leetcode.LinkProblems;
  */
 public class LinkTest {
 
-	private LinkProblems linkProblems;
+	private SingleLink singleLink;
 	private LinkNode head = new LinkNode(11);
 
 	@Before
 	public void linkTest() {
-		linkProblems = new LinkProblems();
+		singleLink = new SingleLink();
 		LinkNode a = new LinkNode(2);
 		LinkNode b = new LinkNode(3);
 		LinkNode c = new LinkNode(4);
@@ -31,9 +31,9 @@ public class LinkTest {
 
 	@Test
 	public void singleLinkTest() {
-		linkProblems.print(head);
-		LinkNode result = linkProblems.reverseSingleLink(head);
-		linkProblems.print(result);
+		singleLink.print(head);
+		LinkNode result = singleLink.reverseSingleLink(head);
+		singleLink.print(result);
 	}
 
 }

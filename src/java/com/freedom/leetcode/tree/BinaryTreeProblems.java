@@ -1,4 +1,6 @@
-package com.freedom.leetcode;
+package com.freedom.leetcode.tree;
+
+import com.freedom.leetcode.tree.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

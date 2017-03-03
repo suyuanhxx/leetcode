@@ -1,4 +1,4 @@
-package com.freedom.leetcode;
+package com.freedom.leetcode.string;
 
 /**
  * Created by xxhuang on 2016/5/17.

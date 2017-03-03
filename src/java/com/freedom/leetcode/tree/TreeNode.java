@@ -1,4 +1,4 @@
-package com.freedom.leetcode;
+package com.freedom.leetcode.tree;
 
 /**
  * Created by xxhuang on 2016/4/28.
