@@ -44,7 +44,7 @@ public class SingleLink {
 
 	public void print(LinkNode head) {
 		while (null != head) {
-			System.out.print(head.val + "--->");
+			System.out.print(head.val + " ---> ");
 			head = head.next;
 		}
 		System.out.println("null");
