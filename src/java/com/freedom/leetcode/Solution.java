@@ -1,4 +1,4 @@
-package java; /**
+package com.freedom.leetcode; /**
  * Created by xxhuang on 2016/4/28.
  */
 

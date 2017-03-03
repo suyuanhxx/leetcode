@@ -3,8 +3,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.LinkNode;
-import java.LinkProblems;
+import com.freedom.leetcode.LinkNode;
+import com.freedom.leetcode.LinkProblems;
 
 /**
  * REVIEW

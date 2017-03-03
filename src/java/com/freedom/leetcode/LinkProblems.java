@@ -1,4 +1,4 @@
-package java;
+package com.freedom.leetcode;
 
 /**
  * Created by xxhuang on 2016/5/17.
@@ -88,7 +88,7 @@ public class LinkProblems {
 			System.out.print(head.val + "--->");
 			head = head.next;
 		}
-		System.out.print("null");
+		System.out.println("null");
 	}
 
 }
