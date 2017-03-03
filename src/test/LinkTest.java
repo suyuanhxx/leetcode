@@ -16,18 +16,24 @@ import com.freedom.leetcode.LinkProblems;
 public class LinkTest {
 
 	private LinkProblems linkProblems;
+	private LinkNode head = new LinkNode(11);
 
 	@Before
 	public void linkTest() {
 		linkProblems = new LinkProblems();
+		LinkNode a = new LinkNode(2);
+		LinkNode b = new LinkNode(3);
+		LinkNode c = new LinkNode(4);
+		head.next = a;
+		a.next = b;
+		b.next = c;
 	}
 
 	@Test
 	public void singleLinkTest() {
-		LinkNode linkNode = new LinkNode(11);
-		linkProblems.reverseSingleLink(linkNode);
-		linkProblems.print(linkNode);
-
+		linkProblems.print(head);
+		LinkNode result = linkProblems.reverseSingleLink(head);
+		linkProblems.print(result);
 	}
 
 }
