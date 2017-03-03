@@ -1,5 +1,4 @@
-package com.freedom.leetcode;
-/**
+package java; /**
  * Created by xxhuang on 2016/4/28.
  */
 
@@ -224,8 +223,8 @@ public class Solution {
         return true;
     }
 
-    public static void main(String[]args){
-        HashMap<Integer,Integer> map  = new HashMap();
+	public static void main(String[] args) {
+		HashMap<Integer,Integer> map  = new HashMap();
         map.put(1,1);
         map.put(1,2);
         int q = map.get(1);
@@ -246,15 +245,15 @@ public class Solution {
         //TreeNode result = s.invertTree(root);
         //s.printTreeNode(root);
         //---------------------------------------------
-        ListNode ls = new ListNode(0);
-        ListNode ls1 = new ListNode(1);
-        ListNode ls2 = new ListNode(6);
-        ListNode ls3 = new ListNode(7);
-        ls.next = ls1;
+		LinkNode ls = new LinkNode(0);
+		LinkNode ls1 = new LinkNode(1);
+		LinkNode ls2 = new LinkNode(6);
+		LinkNode ls3 = new LinkNode(7);
+		ls.next = ls1;
         ls1.next = ls2;
         ls2.next = ls3;
-        //ListNode temp = s.reverseList(ls1);
-        //System.out.print(b);
+		//LinkNode temp = s.reverseList(ls1);
+		//System.out.print(b);
         //System.out.print(s.isPowOfThree(27));
         System.out.println(s.titleToNumber("AC"));
         System.out.println(s.romantoInteger("IX"));

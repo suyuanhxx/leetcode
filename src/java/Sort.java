@@ -1,4 +1,4 @@
-package com.freedom.leetcode;
+package java;
 
 /**
  * 七种排序算法Java版
