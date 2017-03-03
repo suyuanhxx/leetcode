@@ -14,12 +14,12 @@ public class SingleLink {
 	/**
 	 * 单链表反转
 	 * step1. head ---> ...... ---> q
-	 *      	^
-	 *      	|
-	 *      	h
+	 *         ^
+	 *         |
+	 *         h
 	 * step2. head ---> next ---> ...... ---> q
-	 *     			 	^
-	 *      		 	|
+	 *     		    ^
+	 *      	    |
 	 *    	  head <--- h
 	 * pre 上一个节点
 	 * h 中间节点，反转之后头部
