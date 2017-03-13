@@ -3,7 +3,7 @@ package com.freedom.leetcode.link;
 /**
  * REVIEW
  * @Description:
- * @author xiaoxu.huang@baidao.com xiaoxu.huang
+ * @author xiaoxu.huang
  * @date 2017/3/3  11:18
  *
  */
