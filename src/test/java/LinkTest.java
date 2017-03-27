@@ -9,7 +9,7 @@ import com.freedom.leetcode.link.LinkNode;
 /**
  * REVIEW
  * @Description:
- * @author xiaoxu.huang@baidao.com xiaoxu.huang
+ * @author xiaoxu.huang
  * @date 2017/3/3  10:27
  *
  */
