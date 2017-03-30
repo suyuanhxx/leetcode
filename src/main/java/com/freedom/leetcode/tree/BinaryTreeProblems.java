@@ -1,6 +1,6 @@
 package com.freedom.leetcode.tree;
 
-import com.freedom.leetcode.tree.TreeNode;
+import org.junit.Test;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,86 +10,127 @@ import java.util.Queue;
  */
 public class BinaryTreeProblems {
 
-    // LeetCodeOJ 105前序遍历和中序遍历构造二叉树
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        return helper(preorder,0,preorder.length-1,inorder,0,inorder.length-1);
+    /**
+     * LeetCodeOJ 105前序遍历和中序遍历构造二叉树
+     *
+     * @param preOrder
+     * @param inOrder
+     * @return
+     */
+    public TreeNode buildTree(int[] preOrder, int[] inOrder) {
+        return helper(preOrder, 0, preOrder.length - 1, inOrder, 0, inOrder.length - 1);
     }
-    public TreeNode helper(int[] preorder,int i,int j,int[] inorder,int k,int v){
-        if(i>j)return null;
-        if(i==j)return new TreeNode(preorder[i]);
-        int index=k;
-        for(;index<=v;index++){
-            if(preorder[i]==inorder[index])
+
+    public TreeNode helper(int[] preOrder, int i, int j, int[] inOrder, int k, int v) {
+        if (i > j) return null;
+        if (i == j) return new TreeNode(preOrder[i]);
+        int index = k;
+        for (; index <= v; index++) {
+            if (preOrder[i] == inOrder[index])
                 break;
         }
-        TreeNode root = new TreeNode(preorder[i]);
-        root.left = helper(preorder,i+1,index-k+i,inorder,k,index-1);
-        root.right = helper(preorder,index-k+i+1,j,inorder,index+1,v);
+        TreeNode root = new TreeNode(preOrder[i]);
+        root.left = helper(preOrder, i + 1, index - k + i, inOrder, k, index - 1);
+        root.right = helper(preOrder, index - k + i + 1, j, inOrder, index + 1, v);
         return root;
     }
 
 
-    //二叉树倒置
+    /**
+     * 二叉树倒置
+     *
+     * @param root
+     * @return
+     */
     public TreeNode invertTree(TreeNode root) {
-        if(null==root)return null;
+        if (null == root) return null;
         TreeNode result = new TreeNode(root.val);
-        if(null!=root.left && null!=root.right){
-            result.left=invertTree(root.right);
-            result.right=invertTree(root.left);
+        if (null != root.left && null != root.right) {
+            result.left = invertTree(root.right);
+            result.right = invertTree(root.left);
         }
-        if(null!=root.left && null==root.right){
-            result.right=invertTree(root.left);
+        if (null != root.left && null == root.right) {
+            result.right = invertTree(root.left);
         }
-        if(null==root.left && null!=root.right){
-            result.left=invertTree(root.right);
+        if (null == root.left && null != root.right) {
+            result.left = invertTree(root.right);
         }
         return result;
     }
 
-    //二叉树层次遍历
-    public void printTreeNode(TreeNode root){
-        if(null==root)return;
+    /**
+     * 二叉树层次遍历
+     *
+     * @param root
+     */
+    public void levelOrder(TreeNode root) {
+        if (null == root) return;
         Queue<TreeNode> q = new LinkedList<TreeNode>();
         q.add(root);
-        while (!q.isEmpty()){
+        while (!q.isEmpty()) {
             TreeNode temp = q.remove();
             System.out.println(temp.val);
-            if(null!=temp.left && null!=temp.right){
+            if (null != temp.left && null != temp.right) {
                 q.add(temp.left);
                 q.add(temp.right);
             }
-            if(null!=temp.left && null==temp.right){
+            if (null != temp.left && null == temp.right) {
                 q.add(root.left);
             }
-            if(null==temp.left && null!=temp.right){
+            if (null == temp.left && null != temp.right) {
                 q.add(temp.right);
             }
         }
     }
 
-    public void preOrder(TreeNode root){
-        if(null==root)return;
-        System.out.print(root.val+" ");
-        if(null!=root.left)
+    /**
+     * 前序遍历
+     *
+     * @param root
+     */
+    public void preOrder(TreeNode root) {
+        if (null == root) return;
+        System.out.print(root.val + " ");
+        if (null != root.left)
             preOrder(root.left);
-        if(null!=root.right)
+        if (null != root.right)
             preOrder(root.right);
     }
-    public void inOrder(TreeNode root){
-        if(null==root)return;
-        if(null!=root.left)
+
+    /**
+     * 中序遍历
+     *
+     * @param root
+     */
+    public void inOrder(TreeNode root) {
+        if (null == root) return;
+        if (null != root.left)
             inOrder(root.left);
-        System.out.print(root.val+" ");
-        if(null!=root.right)
+        System.out.print(root.val + " ");
+        if (null != root.right)
             inOrder(root.right);
     }
-    public void postOrder(TreeNode root){
-        if(null==root)return;
-        if(null!=root.left)
+
+    /**
+     * 后序遍历
+     *
+     * @param root
+     */
+    public void postOrder(TreeNode root) {
+        if (null == root) return;
+        if (null != root.left)
             postOrder(root.left);
-        if(null!=root.right)
+        if (null != root.right)
             postOrder(root.right);
-        System.out.print(root.val+" ");
+        System.out.print(root.val + " ");
+    }
+
+
+    @Test
+    public void testInteger() {
+        Integer a = 127;
+        Integer b = 127;
+        System.out.print(a == b);
     }
 
 }
