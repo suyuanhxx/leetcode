@@ -5,10 +5,10 @@ import "fmt"
 func main() {
 	array := []int{2, 1, 4, 7, 5, 3, 6, 8, 9, 0}
 	print(array)
-	resutl := bubbleSort(array)
-	print(resutl)
-	resutl = quickSort(array)
-	print(resutl)
+	result := bubbleSort(array)
+	print(result)
+	result = quickSort(array)
+	print(result)
 }
 
 func bubbleSort(array []int) []int {
