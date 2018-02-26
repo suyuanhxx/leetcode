@@ -23,6 +23,7 @@ func removeDuplicates(nums []int) int {
 }
 
 func main() {
+
 	nums := []int{0, 0, 0, 0, 0, 1, 2, 2, 3, 3, 4, 4}
 	fmt.Println(removeDuplicates(nums))
 	for _, num := range nums {
