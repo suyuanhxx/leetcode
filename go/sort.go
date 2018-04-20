@@ -1,43 +1,39 @@
 package main
 
-import "fmt"
-
 func main() {
 	array := []int{2, 1, 4, 7, 5, 3, 6, 8, 9, 0}
 	print(array)
-	result := bubbleSort(array)
+	result := BubbleSort(array)
 	print(result)
-	result = quickSort(array)
+	result = QuickSort(array)
 	print(result)
 }
 
-func bubbleSort(array []int) []int {
-	result := copy(array)
-	for i := range result {
-		j := i + 1
-		for ; j < len(result); j++ {
-			if result[j] < result[i] {
-				temp := result[i]
-				result[i] = result[j]
-				result[j] = temp
+func BubbleSort(s []int) []int {
+	for i := 0; i < len(s); i++ {
+		for j := i; j < len(s); j++ {
+			if s[j] > s[i] {
+				s[i], s[j] = s[j], s[i]
 			}
 		}
 	}
-	return result
+	return s
 }
 
-func quickSort(array []int) []int {
-	return nil
-}
-
-// deep copy
-func copy(array []int) []int {
-	return append(make([]int, 0, len(array)), array...)
-}
-
-func print(array []int) {
-	for _, num := range array {
-		fmt.Print(num, "  ")
+func SelectSort(s []int) {
+	for i := 0; i < len(s)-1; i++ {
+		max := s[i]
+		k := i
+		for j := i; j < len(s); j++ {
+			if s[j] > max {
+				max = s[j]
+				k = j
+			}
+		}
+		s[i], s[k] = s[k], s[i]
 	}
-	fmt.Println()
+}
+
+func QuickSort(array []int) []int {
+	return nil
 }
