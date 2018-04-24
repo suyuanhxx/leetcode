@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	. "./tree"
-)
-
 func pathSum(root *TreeNode, sum int) int {
 	if root == nil {
 		return 0
@@ -40,17 +35,17 @@ func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
 	return t1
 }
 
-func main() {
-	left := TreeNode{1, nil, nil}
-	right := TreeNode{5, nil, nil}
-	left1 := TreeNode{-2, nil, nil}
-	right1 := TreeNode{4, &left, &right}
-	root := TreeNode{1, &left1, &right1}
-	//fmt.Println(pathSum(&root, 6))
-
-	left2 := TreeNode{-2, &left, &right}
-	root2 := TreeNode{1, &left2, &right1}
-
-	fmt.Println(mergeTrees(&root, &root2))
-
-}
+//func main() {
+//	left := TreeNode{1, nil, nil}
+//	right := TreeNode{5, nil, nil}
+//	left1 := TreeNode{-2, nil, nil}
+//	right1 := TreeNode{4, &left, &right}
+//	root := TreeNode{1, &left1, &right1}
+//	//fmt.Println(pathSum(&root, 6))
+//
+//	left2 := TreeNode{-2, &left, &right}
+//	root2 := TreeNode{1, &left2, &right1}
+//
+//	fmt.Println(mergeTrees(&root, &root2))
+//
+//}

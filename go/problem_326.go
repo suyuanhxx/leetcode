@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -31,9 +30,9 @@ func isPowerOfFour(num int) bool {
 	return false
 }
 
-func main() {
-	n := 9
-	fmt.Println(3)
-	fmt.Println(math.Log(float64(n)))
-	fmt.Println(isPowerOfThree(n))
-}
+//func main() {
+//	n := 9
+//	fmt.Println(3)
+//	fmt.Println(math.Log(float64(n)))
+//	fmt.Println(isPowerOfThree(n))
+//}

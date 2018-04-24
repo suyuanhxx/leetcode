@@ -1,8 +1,6 @@
 package main
 
-import "fmt"
 import (
-	. "./tree"
 	"container/list"
 )
 
@@ -47,16 +45,16 @@ func levelOrderEnd(root *TreeNode) []*int {
 	return result
 }
 
-func main() {
-
-	left := TreeNode{1, nil, nil}
-	right := TreeNode{5, nil, nil}
-	left1 := TreeNode{-2, nil, nil}
-	right1 := TreeNode{4, &left, &right}
-	root := TreeNode{1, &left1, &right1}
-
-	array := rightSideView(&root)
-	for _, num := range array {
-		fmt.Println(num)
-	}
-}
+//func main() {
+//
+//	left := TreeNode{1, nil, nil}
+//	right := TreeNode{5, nil, nil}
+//	left1 := TreeNode{-2, nil, nil}
+//	right1 := TreeNode{4, &left, &right}
+//	root := TreeNode{1, &left1, &right1}
+//
+//	array := rightSideView(&root)
+//	for _, num := range array {
+//		fmt.Println(num)
+//	}
+//}

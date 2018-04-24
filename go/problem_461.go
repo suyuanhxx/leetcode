@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 //func hammingDistance(x int, y int) int {
 //	a := binaryToDecimal(uint(x))
 //	b := binaryToDecimal(uint(y))
@@ -48,9 +46,9 @@ func binaryToDecimal(n uint) [32]uint {
 	return result
 }
 
-func main() {
-	x := 10
-	y := 4
-	//binaryToDecimal(uint(x))
-	fmt.Println(hammingDistance(x, y))
-}
+//func main() {
+//	x := 10
+//	y := 4
+//	//binaryToDecimal(uint(x))
+//	fmt.Println(hammingDistance(x, y))
+//}

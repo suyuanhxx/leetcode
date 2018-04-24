@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math/big"
 	"math"
 	"strconv"
@@ -76,22 +75,22 @@ func mergeArray(insertArray []int, result []int) []int {
 	return result
 }
 
-func main() {
-	//n := big.NewInt(10)
-	//fmt.Print(factorial(n))
-	//
-	//x := new(big.Int)
-	//x.MulRange(1, 10)
-	//fmt.Print(x)
-
-	A := []int{1, 2, 3, 4}
-	B := []int{2, 4, 5, 6}
-
-	//B = append(B[:0], append([]int{1}, B[0:]...)...)
-	//B = append(B[:1], append([]int{1}, B[1:]...)...)
-
-	fmt.Println(mergeSortedArray(A, B))
-	fmt.Println(digitCounts(1, 12))
-	n := int64(20)
-	fmt.Println(trailingZeros(n))
-}
+//func main() {
+//	//n := big.NewInt(10)
+//	//fmt.Print(factorial(n))
+//	//
+//	//x := new(big.Int)
+//	//x.MulRange(1, 10)
+//	//fmt.Print(x)
+//
+//	A := []int{1, 2, 3, 4}
+//	B := []int{2, 4, 5, 6}
+//
+//	//B = append(B[:0], append([]int{1}, B[0:]...)...)
+//	//B = append(B[:1], append([]int{1}, B[1:]...)...)
+//
+//	fmt.Println(mergeSortedArray(A, B))
+//	fmt.Println(digitCounts(1, 12))
+//	n := int64(20)
+//	fmt.Println(trailingZeros(n))
+//}

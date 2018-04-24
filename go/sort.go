@@ -1,13 +1,13 @@
 package main
 
-func main() {
-	array := []int{2, 1, 4, 7, 5, 3, 6, 8, 9, 0}
-	print(array)
-	result := BubbleSort(array)
-	print(result)
-	result = QuickSort(array)
-	print(result)
-}
+//func main() {
+//	array := []int{2, 1, 4, 7, 5, 3, 6, 8, 9, 0}
+//	print(array)
+//	result := BubbleSort(array)
+//	print(result)
+//	result = QuickSort(array)
+//	print(result)
+//}
 
 func BubbleSort(s []int) []int {
 	for i := 0; i < len(s); i++ {

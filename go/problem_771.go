@@ -1,7 +1,6 @@
 package main
 
 import "strings"
-import "fmt"
 
 func numJewelsInStones(J string, S string) int {
 	count := 0
@@ -11,8 +10,8 @@ func numJewelsInStones(J string, S string) int {
 	return count
 }
 
-func main() {
-	J := "z"
-	S := "ZZZ"
-	fmt.Println(numJewelsInStones(J, S))
-}
+//func main() {
+//	J := "z"
+//	S := "ZZZ"
+//	fmt.Println(numJewelsInStones(J, S))
+//}

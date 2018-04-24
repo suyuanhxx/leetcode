@@ -13,28 +13,24 @@ Return the following binary tree:
    15   7
  */
 
-func buildTree(preorder []int, inorder []int) *TreeNode {
-	if len(preorder) == 0 || len(inorder) == 0 {
-		return nil
-	}
-
-	root := TreeNode{Val: preorder[0]}
-	return build(preorder, inorder, &root)
+func BuildTree(preorder []int, inorder []int) *TreeNode {
+	return build(preorder, inorder, 0, len(preorder)-1, 0, len(inorder)-1)
 }
 
-func build(preorder []int, inorder []int, root *TreeNode) *TreeNode {
-	if len(preorder) == 0 || len(inorder) == 0 {
-		return root
+func build(preorder []int, inorder []int, preStart int, preEnd int, inStart int, inEnd int) *TreeNode {
+	if preStart > preEnd || inStart > inEnd {
+		return nil;
 	}
-	for _, data := range preorder {
-		for j, k := range inorder {
-			if data == k {
 
-			}
+	root := &TreeNode{Val: preorder[preStart]}
+	var flag int
+	for i := inStart; i <= inEnd; i++ {
+		if preorder[preStart] == inorder[i] {
+			flag = i
+			break
 		}
 	}
-}
-
-func main() {
-
+	root.Left = build(preorder, inorder, preStart+1, preStart+flag-inStart, inStart, flag-1);
+	root.Right = build(preorder, inorder, preStart+flag-inStart+1, preEnd, flag+1, inEnd);
+	return root
 }
