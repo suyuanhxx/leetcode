@@ -17,34 +17,35 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil {
 		return l1
 	}
-	cur1, cur2 := l1, l2
-	carry := 0
-	head := &ListNode{}
-	cur := head
-	for cur1 != nil || cur2 != nil {
+	cur1, cur2, carry := l1, l2, 0
+	var head, cur *ListNode
+	for cur1 != nil || cur2 != nil || carry > 0 {
 		result := carry
 		if cur1 != nil {
 			result += cur1.Val
+			cur1 = cur1.Next
 		}
 		if cur2 != nil {
 			result += cur2.Val
+			cur2 = cur2.Next
 		}
 		result, carry = Add(result)
-		if cur.Val == head.Val {
-			head.Val = result
-
+		if head == nil {
+			head = &ListNode{Val: result}
+			cur = head
+		} else {
+			temp := &ListNode{Val: result}
+			cur.Next = temp
+			cur = cur.Next
 		}
-		temp := &ListNode{Val: result}
-		cur.Next = temp
-		cur = cur.Next
 	}
 	return head
 }
 
 func Add(a int) (result, carry int) {
-	if a > 10 {
-		carry /= 10
-		result %= 10
+	if a >= 10 {
+		carry = a / 10
+		result = a % 10
 		return result, carry
 	}
 	return a, 0
