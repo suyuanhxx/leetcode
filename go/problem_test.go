@@ -17,3 +17,10 @@ func TestBuildTreeFromInAndPostOrder(t *testing.T) {
 	root := BuildTree_2(inorder, postorder)
 	InOrderPrint(root)
 }
+
+func TestAddTwoNumbers(t *testing.T) {
+	l1 := BuildLinkList([]int{2, 4, 3})
+	l2 := BuildLinkList([]int{5, 6, 4})
+	link := &LinkedList{Head: AddTwoNumbers(l1, l2)}
+	link.Print()
+}
