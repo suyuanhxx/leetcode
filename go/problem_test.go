@@ -55,3 +55,8 @@ func TestRemoveNthFromEnd2(t *testing.T) {
 	link := RemoveNthFromEnd2(head, 2)
 	link.Print()
 }
+
+func TestMajorityElement(t *testing.T) {
+	inorder := []int{1, 1, 2, 3, 1}
+	fmt.Print(MajorityElement(inorder))
+}
