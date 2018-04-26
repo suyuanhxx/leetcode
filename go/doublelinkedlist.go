@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type DoubleListNode struct {
 	Val  int
@@ -9,12 +11,29 @@ type DoubleListNode struct {
 }
 
 func (head *DoubleListNode) Print() {
-	fmt.Print(head.Val, " ")
-	cur := head.Next
-	for cur != head {
+	cur := head
+	var prev *DoubleListNode
+	for cur != nil && prev != head {
 		fmt.Print(cur.Val, " ")
 		cur = cur.Next
+		prev = cur
 	}
+}
+
+func (head *DoubleListNode) Insert(y int, x int) *DoubleListNode {
+	cur := head
+	var prev *DoubleListNode
+	for cur != nil && prev != head {
+		if cur.Val == y {
+			tmp := &DoubleListNode{Val: x, Next: cur.Next, Prev: cur}
+			cur.Next.Prev = tmp
+			cur.Next = tmp
+			break
+		}
+		cur = cur.Next
+		prev = cur
+	}
+	return head
 }
 
 func BuildDoubleLinkList(array []int) *DoubleListNode {

@@ -4,14 +4,6 @@ import (
 	"fmt"
 )
 
-/**
- * Definition for singly-linked list.
- */
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 type ILinkedList interface {
 	Print()
 	Find(x int) *ListNode
@@ -20,6 +12,14 @@ type ILinkedList interface {
 	InsertAfter(y int, x *ListNode)
 	Delete(i int) *ListNode
 	DeleteValue(x int) *ListNode
+}
+
+/**
+ * Definition for singly-linked list.
+ */
+type ListNode struct {
+	Val  int
+	Next *ListNode
 }
 
 func (head *ListNode) Print() {
