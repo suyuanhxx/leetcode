@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /**
  * Definition for singly-linked list.
@@ -20,31 +22,25 @@ type ILinkedList interface {
 	DeleteValue(x int) *ListNode
 }
 
-type LinkedList struct {
-	Head    *ListNode
-	Current *ListNode
-	Size    int
-}
-
-func (linkedList *LinkedList) Print() {
-	cur := linkedList.Head
+func (head *ListNode) Print() {
+	cur := head
 	for cur != nil {
 		fmt.Print(cur.Val, " ")
 		cur = cur.Next
 	}
 }
 
-func (linkedList *LinkedList) Find(x int) *ListNode {
-	cur := linkedList.Head
+func (head *ListNode) Find(x int) *ListNode {
+	cur := head
 	for cur != nil && cur.Val != x {
 		cur = cur.Next
 	}
 	return cur
 }
 
-func (linkedList *LinkedList) FindIndex(x int) *ListNode {
+func (head *ListNode) FindIndex(x int) *ListNode {
 	pos := 0
-	cur := linkedList.Head
+	cur := head
 	for cur != nil && pos != x {
 		cur = cur.Next
 		pos++
@@ -52,8 +48,8 @@ func (linkedList *LinkedList) FindIndex(x int) *ListNode {
 	return cur
 }
 
-func (linkedList *LinkedList) Insert(i int, node *ListNode) *ListNode {
-	pos, cur := 0, linkedList.Head
+func (head *ListNode) Insert(i int, node *ListNode) *ListNode {
+	pos, cur := 0, head
 	for cur != nil {
 		if pos == i {
 			temp := cur.Next
@@ -64,11 +60,11 @@ func (linkedList *LinkedList) Insert(i int, node *ListNode) *ListNode {
 		}
 		pos++
 	}
-	return linkedList.Head
+	return head
 }
 
-func (linkedList *LinkedList) InsertAfter(y int, x *ListNode) *ListNode {
-	cur := linkedList.Head
+func (head *ListNode) InsertAfter(y int, x *ListNode) *ListNode {
+	cur := head
 	for ; cur != nil; cur = cur.Next {
 		if cur.Val == y {
 			temp := cur.Next
@@ -76,30 +72,34 @@ func (linkedList *LinkedList) InsertAfter(y int, x *ListNode) *ListNode {
 			break
 		}
 	}
-	return linkedList.Head
+	return head
 }
 
-func (linkedList *LinkedList) Delete(i int) *ListNode {
-	pos, cur := 0, linkedList.Head
+func (head *ListNode) Delete(i int) *ListNode {
+	pos, cur := 0, head
 	var pre *ListNode
-	for cur != nil {
-		if pos == i {
-			pre.Next = cur.Next
-			break
+	if pos == 0 {
+		head = cur.Next
+	} else {
+		for cur != nil {
+			if pos == i {
+				pre.Next = cur.Next
+				break
+			}
+			pre, cur = cur, cur.Next
+			pos++
 		}
-		pre, cur = cur, cur.Next
-		pos++
 	}
-	return linkedList.Head
+	return head
 }
 
-func (linkedList *LinkedList) DeleteValue(x int) *ListNode {
-	cur := linkedList.Head
+func (head *ListNode) DeleteValue(x int) *ListNode {
+	cur := head
 	var pre *ListNode
 	for cur != nil {
 		if cur.Val == x {
-			if cur == linkedList.Head {
-				linkedList.Head = cur.Next
+			if cur == head {
+				head = cur.Next //第一个元素
 			} else {
 				pre.Next = cur.Next
 			}
@@ -107,7 +107,7 @@ func (linkedList *LinkedList) DeleteValue(x int) *ListNode {
 		}
 		pre, cur = cur, cur.Next
 	}
-	return linkedList.Head
+	return head
 }
 
 func BuildLinkList(array []int) *ListNode {

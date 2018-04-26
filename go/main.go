@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type People interface {
 	getUserName() string
 }
@@ -15,7 +13,6 @@ func (user *User) getUserName() string {
 }
 
 func main() {
-	var p People
-	p = &User{Name: "111"}
-	fmt.Print(p.getUserName())
+	head := BuildDoubleLinkList([]int{3, 22, 5, 45, 23, 8})
+	head.Print()
 }
