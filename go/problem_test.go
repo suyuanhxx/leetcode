@@ -60,3 +60,9 @@ func TestMajorityElement(t *testing.T) {
 	inorder := []int{1, 1, 2, 3, 1}
 	fmt.Print(MajorityElement(inorder))
 }
+
+func TestLongestCommonStr(t *testing.T) {
+	A := "134756778216"
+	B := "357486782"
+	fmt.Println(LongestCommonSubLen(A, B))
+}
