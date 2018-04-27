@@ -48,3 +48,9 @@ func TestBuildDoubleLinkList(t *testing.T) {
 	link := buildDoubleLinkList()
 	link.Print()
 }
+
+func TestDoubleListNode_Insert(t *testing.T) {
+	link := buildDoubleLinkList()
+	link.Insert(22, 15)
+	link.Print()
+}

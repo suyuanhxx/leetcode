@@ -13,6 +13,7 @@ func (user *User) getUserName() string {
 }
 
 func main() {
+
 	head := BuildDoubleLinkList([]int{3, 22, 5, 45, 23, 8})
 	head.Print()
 }
