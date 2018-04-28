@@ -66,3 +66,13 @@ func TestLongestCommonStr(t *testing.T) {
 	B := "357486782"
 	fmt.Println(LongestCommonSubLen(A, B))
 }
+
+func TestClimbStairs(t *testing.T) {
+	n := 4
+	fmt.Println(ClimbStairs(n))
+}
+
+func TestLongestIncreaseList(t *testing.T) {
+	array := []int{3, 22, 2, 45, 23, 8}
+	fmt.Println(LongestIncreaseList(array))
+}

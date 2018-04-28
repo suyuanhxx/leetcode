@@ -20,16 +20,16 @@ func LongestCommonSubLen(A string, B string) int {
 			} else if A[x-1] == B[y-1] {
 				LCS[x][y] = LCS[x-1][y-1] + 1
 			} else {
-				LCS[x][y] = max(LCS[x-1][y], LCS[x][y-1])
+				LCS[x][y] = Max(LCS[x-1][y], LCS[x][y-1])
 			}
 		}
 	}
-	fmt.Println(reverseString(LongestCommonSub(LCS, A, B)))
+	fmt.Println(reverseString(LongestCommonSeq(LCS, A, B)))
 	return LCS[len(A)][len(B)]
 }
 
 // Longest common sequence string
-func LongestCommonSub(s [][]int, A string, B string) (result string) {
+func LongestCommonSeq(s [][]int, A string, B string) (result string) {
 	i := len(A)
 	j := len(B)
 	for i > 0 && j > 0 {
@@ -60,7 +60,7 @@ func reverseString(s string) string {
 }
 
 // return max(a,b)
-func max(a int, b int) int {
+func Max(a int, b int) int {
 	if a > b {
 		return a
 	} else {

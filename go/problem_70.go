@@ -1,11 +1,21 @@
 package main
 
-func climbStairs(n int) int {
-	if n == 0 {
-		return 0
+func ClimbStairs(n int) int {
+	if (n <= 1) {
+		return 1;
 	}
-	if n == 1 {
-		return 1
+
+	var nCur, nPrev, nPrevP int
+	nPrevP = 1;
+	nPrev = 2;
+	for i := 3; i <= n; i++ {
+		nCur = nPrev + nPrevP;
+		nPrevP = nPrev;
+		nPrev = nCur;
 	}
-	return climbStairs(n-1) + climbStairs(n-2)
+	return nCur;
+}
+
+func pr() {
+	//i,j :=0,0
 }
