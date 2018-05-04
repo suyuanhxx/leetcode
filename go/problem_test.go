@@ -9,7 +9,8 @@ func TestBuildTree(t *testing.T) {
 	preorder := []int{3, 9, 20, 15, 7}
 	inorder := []int{9, 3, 15, 20, 7}
 	root := BuildTree(preorder, inorder)
-	InOrderPrint(root)
+	//InOrderPrint(root)
+	LevelOrderPrint(root)
 }
 
 func TestBuildTreeFromInAndPostOrder(t *testing.T) {
@@ -75,4 +76,9 @@ func TestClimbStairs(t *testing.T) {
 func TestLongestIncreaseList(t *testing.T) {
 	array := []int{3, 22, 2, 45, 23, 8}
 	fmt.Println(LongestIncreaseList(array))
+}
+
+func TestLongestConsecutive(t *testing.T) {
+	array := []int{9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6}
+	LongestConsecutive(array)
 }
