@@ -61,11 +61,20 @@ func LevelOrderPrint(root *TreeNode) {
 	}
 }
 
-func (root *TreeNode) GetHeight() int {
+func (root *TreeNode) CreateTree(preOrder []string) *TreeNode {
 	if root == nil {
+		root = new(TreeNode)
+	}
+	for   {
+
+	}
+}
+
+func (root *TreeNode) GetHeight(node *TreeNode) int {
+	if node == nil {
 		return 0
 	} else {
-		return MaxOfTwo(root.Left.GetHeight(), root.Right.GetHeight())
+		return MaxOfTwo(root.GetHeight(node.Left), root.GetHeight(node.Right))
 	}
 }
 
@@ -76,4 +85,3 @@ func MaxOfTwo(a, b int) int {
 		return b
 	}
 }
-
