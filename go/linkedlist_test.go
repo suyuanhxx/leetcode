@@ -12,9 +12,16 @@ func buildLinkedList() *ListNode {
 }
 
 func buildDoubleLinkList() *DoubleListNode {
+
+	//head := &ListNode{Val: 3}
 	array := []int{3, 22, 5, 45, 23, 8}
 	head := BuildDoubleLinkList(array)
 	return head
+}
+
+func TestListNode_Print(t *testing.T) {
+	link := buildLinkedList()
+	link.Print()
 }
 
 func TestLinkedList_Insert(t *testing.T) {
@@ -53,4 +60,10 @@ func TestDoubleListNode_Insert(t *testing.T) {
 	link := buildDoubleLinkList()
 	link.Insert(22, 15)
 	link.Print()
+}
+
+func TestReverse(t *testing.T) {
+	link := buildLinkedList()
+	link.Print()
+	Reverse(link).Print()
 }

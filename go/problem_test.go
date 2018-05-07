@@ -80,5 +80,5 @@ func TestLongestIncreaseList(t *testing.T) {
 
 func TestLongestConsecutive(t *testing.T) {
 	array := []int{9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6}
-	LongestConsecutive(array)
+	fmt.Println(LongestConsecutive(array))
 }

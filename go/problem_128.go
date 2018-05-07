@@ -54,11 +54,11 @@ func LongestConsecutive(nums []int) int {
 	}
 
 	length := 0
-	for _, v := range m {
-		currLength := 1
 
-		if _, ok := m[v-1]; !ok {
-			currNum := v
+	for _, item := range nums {
+		currLength := 1
+		if _, ok := m[item-1]; !ok {
+			currNum := item
 			for {
 				if _, ok := m[currNum+1]; ok {
 					currLength ++
@@ -67,7 +67,6 @@ func LongestConsecutive(nums []int) int {
 					break
 				}
 			}
-
 			if currLength > length {
 				length = currLength
 			}

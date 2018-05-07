@@ -22,6 +22,9 @@ type ListNode struct {
 	Next *ListNode
 }
 
+/**
+print singly-linked list
+ */
 func (head *ListNode) Print() {
 	cur := head
 	for cur != nil {
@@ -78,7 +81,7 @@ func (head *ListNode) InsertAfter(y int, x *ListNode) *ListNode {
 func (head *ListNode) Delete(i int) *ListNode {
 	pos, cur := 0, head
 	var pre *ListNode
-	if pos == 0 {
+	if i == 0 {
 		head = cur.Next
 	} else {
 		for cur != nil {
@@ -96,20 +99,25 @@ func (head *ListNode) Delete(i int) *ListNode {
 func (head *ListNode) DeleteValue(x int) *ListNode {
 	cur := head
 	var pre *ListNode
-	for cur != nil {
-		if cur.Val == x {
-			if cur == head {
-				head = cur.Next //第一个元素
-			} else {
+
+	if x == head.Val {
+		head = head.Next
+	} else {
+		for cur != nil {
+			if cur.Val == x {
 				pre.Next = cur.Next
+				break
 			}
-			break
+			pre, cur = cur, cur.Next
 		}
-		pre, cur = cur, cur.Next
 	}
 	return head
 }
 
+/**
+build singly-linked list from array
+finally current is last node, head is first node
+ */
 func BuildLinkList(array []int) *ListNode {
 	head := &ListNode{Val: array[0]}
 	cur := head
@@ -121,13 +129,16 @@ func BuildLinkList(array []int) *ListNode {
 	return head
 }
 
-//func main() {
-//	array := []int{3, 22, 5, 45, 23, 8}
-//
-//	head := BuildLinkList(array)
-//
-//	link := &LinkedList{Head: head}
-//	fmt.Println(link.Find(100))
-//	fmt.Println(link.FindIndex(9))
-//	//link.Print()
-//}
+func Reverse(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+	var p *ListNode
+	h, q := head, head.Next
+	for q != nil {
+		h.Next = p
+		p, h, q = h, q, q.Next
+	}
+	h.Next = p
+	return h
+}
