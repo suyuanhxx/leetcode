@@ -9,15 +9,17 @@ func TestBuildTree(t *testing.T) {
 	preorder := []int{3, 9, 20, 15, 7}
 	inorder := []int{9, 3, 15, 20, 7}
 	root := BuildTree(preorder, inorder)
+	fmt.Print(root)
 	//InOrderPrint(root)
-	LevelOrderPrint(root)
+	//LevelOrderPrint(root)
 }
 
 func TestBuildTreeFromInAndPostOrder(t *testing.T) {
 	inorder := []int{9, 3, 15, 20, 7}
 	postorder := []int{9, 15, 7, 20, 3}
 	root := BuildTree_2(inorder, postorder)
-	InOrderPrint(root)
+	fmt.Print(root)
+	//InOrderPrint(root)
 }
 
 func TestAddTwoNumbers(t *testing.T) {

@@ -11,7 +11,13 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func PreOrderPrint(root *TreeNode) {
+type BinaryTree struct {
+	Val   interface{}
+	Left  *BinaryTree
+	Right *BinaryTree
+}
+
+func PreOrderPrint(root *BinaryTree) {
 	fmt.Print(root.Val, " ")
 	if root.Left != nil {
 		PreOrderPrint(root.Left)
@@ -21,7 +27,7 @@ func PreOrderPrint(root *TreeNode) {
 	}
 }
 
-func InOrderPrint(root *TreeNode) {
+func InOrderPrint(root *BinaryTree) {
 	if root.Left != nil {
 		InOrderPrint(root.Left)
 	}
@@ -31,7 +37,7 @@ func InOrderPrint(root *TreeNode) {
 	}
 }
 
-func PostOrderPrint(root *TreeNode) {
+func PostOrderPrint(root *BinaryTree) {
 	if root.Left != nil {
 		PostOrderPrint(root.Left)
 	}
@@ -41,7 +47,7 @@ func PostOrderPrint(root *TreeNode) {
 	fmt.Print(root.Val, " ")
 }
 
-func LevelOrderPrint(root *TreeNode) {
+func LevelOrderPrint(root *BinaryTree) {
 	if root == nil {
 		return
 	}
@@ -49,7 +55,7 @@ func LevelOrderPrint(root *TreeNode) {
 	l.PushBack(root)
 	for l.Len() > 0 {
 		item := l.Front()
-		node := item.Value.(*TreeNode)
+		node := item.Value.(*BinaryTree)
 		fmt.Print(node.Val, " ")
 		l.Remove(item)
 		if node.Left != nil {
@@ -61,27 +67,48 @@ func LevelOrderPrint(root *TreeNode) {
 	}
 }
 
-func (root *TreeNode) CreateTree(preOrder []string) *TreeNode {
-	if root == nil {
-		root = new(TreeNode)
+func (root *BinaryTree) GetNodeNumber(node *BinaryTree) int {
+	if node == nil {
+		return 0
 	}
-	for   {
-
-	}
+	return root.GetNodeNumber(node.Left) + root.GetNodeNumber(node.Right) + 1;
 }
 
-func (root *TreeNode) GetHeight(node *TreeNode) int {
+func (root *BinaryTree) GetHeight(node *BinaryTree) int {
 	if node == nil {
 		return 0
 	} else {
-		return MaxOfTwo(root.GetHeight(node.Left), root.GetHeight(node.Right))
+		return maxOfTwo(root.GetHeight(node.Left), root.GetHeight(node.Right)) + 1
 	}
 }
 
-func MaxOfTwo(a, b int) int {
+func maxOfTwo(a, b int) int {
 	if a >= b {
 		return a
 	} else {
 		return b
 	}
+}
+
+func CreateTree(preorder []interface{}, inorder []interface{}) *BinaryTree {
+	return buildBinaryTree(preorder, inorder, 0, len(preorder)-1, 0, len(inorder)-1)
+}
+
+func buildBinaryTree(preorder []interface{}, inorder []interface{},
+	preStart, preEnd, inStart, inEnd int) *BinaryTree {
+	if preStart > preEnd || inStart > inEnd {
+		return nil;
+	}
+
+	root := &BinaryTree{Val: preorder[preStart]}
+	var flag int
+	for i := inStart; i <= inEnd; i++ {
+		if preorder[preStart] == inorder[i] {
+			flag = i
+			break
+		}
+	}
+	root.Left = buildBinaryTree(preorder, inorder, preStart+1, preStart+flag-inStart, inStart, flag-1);
+	root.Right = buildBinaryTree(preorder, inorder, preStart+flag-inStart+1, preEnd, flag+1, inEnd);
+	return root
 }

@@ -31,3 +31,6 @@ func LongestList(list []int) int {
 	}
 	return dp[n-1]
 }
+
+
+
