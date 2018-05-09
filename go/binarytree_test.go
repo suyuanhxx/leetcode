@@ -37,3 +37,11 @@ func TestBinaryTree_GetNodeNumber(t *testing.T) {
 	root := createTree()
 	fmt.Print(root.GetNodeNumber(root))
 }
+
+func TestBinaryTree_CreateHuffman(t *testing.T) {
+	var root *BinaryTree
+	element := []int{9, 12, 6, 3, 5, 15}
+	root = root.CreateHuffman(element)
+	//LevelOrderPrint(root)
+	root.HuffManCoding(root, 0)
+}
