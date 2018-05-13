@@ -35,8 +35,7 @@ func (q *Queue) Add(item *int) {
 func Josephus(n, m, k int) int {
 	r := ring.New(n) // 环
 	for i := 1; i <= n; i++ {
-		r.Value = i;
-		r = r.Next()
+		r.Value,r = i,r.Next()
 	}
 
 	for i := 1; i < k; i++ {
@@ -48,6 +47,7 @@ func Josephus(n, m, k int) int {
 		}
 		p := r.Prev()
 		p.Unlink(1) // remove current node r
+		//r.Unlink(1)// remove r next node
 		r = p.Next()
 	}
 	return r.Value.(int)
