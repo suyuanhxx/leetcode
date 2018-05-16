@@ -43,5 +43,5 @@ func TestBinaryTree_CreateHuffman(t *testing.T) {
 	element := []int{9, 12, 6, 3, 5, 15}
 	root = root.CreateHuffman(element)
 	//LevelOrderPrint(root)
-	root.HuffManCoding(root, 0)
+	root.HuffmanCoding(root, 0)
 }

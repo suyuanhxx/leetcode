@@ -153,7 +153,7 @@ func (binaryTree *BinaryTree) CreateHuffman(element []int) *BinaryTree {
 
 var a [10]int
 
-func (binaryTree *BinaryTree) HuffManCoding(node *BinaryTree, len int) {
+func (binaryTree *BinaryTree) HuffmanCoding(node *BinaryTree, len int) {
 	if node != nil {
 		if node.Left == nil && node.Right == nil {
 			fmt.Printf("结点权值为%d的编码：", node.Val);
@@ -163,9 +163,9 @@ func (binaryTree *BinaryTree) HuffManCoding(node *BinaryTree, len int) {
 			fmt.Println()
 		} else {
 			a[len] = 0
-			binaryTree.HuffManCoding(node.Left, len+1)
+			binaryTree.HuffmanCoding(node.Left, len+1)
 			a[len] = 1
-			binaryTree.HuffManCoding(node.Right, len+1)
+			binaryTree.HuffmanCoding(node.Right, len+1)
 		}
 	}
 }
