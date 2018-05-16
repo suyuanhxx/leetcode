@@ -22,8 +22,8 @@ func (s *Stack) Pop() int {
 		return 0
 	}
 	item := s.Element[s.Size-1]
-	s.Element = s.Element[:s.Size-1]
-	s.Size --
+	s.Size -= 1
+	s.Element = s.Element[:s.Size]
 	if s.Size > 0 {
 		s.Top = s.Element[s.Size-1]
 	} else {

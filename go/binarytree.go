@@ -12,9 +12,8 @@ type TreeNode struct {
 }
 
 type BinaryTree struct {
-	Val   interface{}
-	Left  *BinaryTree
-	Right *BinaryTree
+	Val         interface{}
+	Left, Right *BinaryTree
 }
 
 func PreOrderPrint(root *BinaryTree) {
