@@ -84,3 +84,8 @@ func TestLongestConsecutive(t *testing.T) {
 	array := []int{9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6}
 	fmt.Println(LongestConsecutive(array))
 }
+
+func TestTwoSum(t *testing.T) {
+	array := []int{9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6}
+	fmt.Println(TwoSum(array, 6))
+}

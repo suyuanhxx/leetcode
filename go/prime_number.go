@@ -21,17 +21,17 @@ func filter(in, out chan int, prime int) {
 	}
 }
 
-func main() {
-	ch := make(chan int) // Create a new channel.
-	go generate(ch)      // Start generate() as a goroutine.
-	for {
-		prime := <-ch
-		fmt.Println(prime)
-		ch1 := make(chan int)
-		go filter(ch, ch1, prime)
-		ch = ch1
-	}
-}
+//func main() {
+//	ch := make(chan int) // Create a new channel.
+//	go generate(ch)      // Start generate() as a goroutine.
+//	for {
+//		prime := <-ch
+//		fmt.Println(prime)
+//		ch1 := make(chan int)
+//		go filter(ch, ch1, prime)
+//		ch = ch1
+//	}
+//}
 
 //func main() {
 //	origin, wait := make(chan int), make(chan struct{})

@@ -67,50 +67,50 @@ func showValue(asset valuable) {
 	fmt.Printf("Value of the asset is %f\n", asset.getValue())
 }
 
-func main() {
-	sql := &Square{5}
-	rect := &Rectangle{10, 4}
-
-	//接口可以直接引用实现了此接口的类型的方法
-
-	//接口声明,方式一
-	var areaIntf Shaper
-	areaIntf = sql
-
-	//接口声明,方式二
-	areaIntf1 := Shaper(sql)
-
-	//接口声明,方式三
-	areaIntf2 := sql
-
-	fmt.Println(areaIntf.Area())
-	fmt.Println(areaIntf1.Area())
-	fmt.Println(areaIntf2.Area())
-
-	//多态
-	areaIntf3 := Shaper(rect)
-	fmt.Println(areaIntf3.Area())
-
-	//鸭式辩型,类似其他语言的转型
-
-	var o valuable = stockPosition{"GOOG", 577.20, 4}
-	showValue(o)
-	o = car{"BMW", "M3", 66500}
-	showValue(o)
-
-	// 类型断言
-	if t, ok := areaIntf.(*Square); ok { //必须是*Square 而不是Square
-		fmt.Printf("%T", t) //*main.Square
-	}
-
-	// type switch
-	switch areaIntf.(type) {
-	case *Square:
-		fmt.Println("square")
-	case *Rectangle:
-		fmt.Println("Rectangle")
-	default:
-		fmt.Println("not find")
-	}
-
-}
+//func main() {
+//	sql := &Square{5}
+//	rect := &Rectangle{10, 4}
+//
+//	//接口可以直接引用实现了此接口的类型的方法
+//
+//	//接口声明,方式一
+//	var areaIntf Shaper
+//	areaIntf = sql
+//
+//	//接口声明,方式二
+//	areaIntf1 := Shaper(sql)
+//
+//	//接口声明,方式三
+//	areaIntf2 := sql
+//
+//	fmt.Println(areaIntf.Area())
+//	fmt.Println(areaIntf1.Area())
+//	fmt.Println(areaIntf2.Area())
+//
+//	//多态
+//	areaIntf3 := Shaper(rect)
+//	fmt.Println(areaIntf3.Area())
+//
+//	//鸭式辩型,类似其他语言的转型
+//
+//	var o valuable = stockPosition{"GOOG", 577.20, 4}
+//	showValue(o)
+//	o = car{"BMW", "M3", 66500}
+//	showValue(o)
+//
+//	// 类型断言
+//	if t, ok := areaIntf.(*Square); ok { //必须是*Square 而不是Square
+//		fmt.Printf("%T", t) //*main.Square
+//	}
+//
+//	// type switch
+//	switch areaIntf.(type) {
+//	case *Square:
+//		fmt.Println("square")
+//	case *Rectangle:
+//		fmt.Println("Rectangle")
+//	default:
+//		fmt.Println("not find")
+//	}
+//
+//}

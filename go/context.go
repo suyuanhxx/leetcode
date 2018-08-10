@@ -4,7 +4,6 @@ import (
 	"time"
 	"log"
 	"context"
-	"os"
 )
 
 var logg *log.Logger
@@ -43,10 +42,10 @@ func doStuff(ctx context.Context) {
 	}
 }
 
-func main() {
-
-	logg = log.New(os.Stdout, "", log.Ltime)
-	//someHandler()
-	timeoutHandler()
-	logg.Printf("down")
-}
+//func main() {
+//
+//	logg = log.New(os.Stdout, "", log.Ltime)
+//	//someHandler()
+//	timeoutHandler()
+//	logg.Printf("down")
+//}
