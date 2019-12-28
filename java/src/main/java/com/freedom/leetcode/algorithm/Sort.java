@@ -25,15 +25,16 @@ public class Sort {
      * @param src
      */
     public static void bubbleSort(int[] src) {
-        if (src.length > 0) {
-            int length = src.length;
-            for (int i = 0; i < length; i++) {
-                for (int j = i + 1; j < length; j++) {
-                    if (src[i] > src[j]) {
-                        int temp = src[j];
-                        src[j] = src[i];
-                        src[i] = temp;
-                    }
+        if (src.length <= 0) {
+            return;
+        }
+        int length = src.length;
+        for (int i = 0; i < length; i++) {
+            for (int j = i + 1; j < length; j++) {
+                if (src[i] > src[j]) {
+                    int temp = src[j];
+                    src[j] = src[i];
+                    src[i] = temp;
                 }
             }
         }
@@ -43,18 +44,19 @@ public class Sort {
      * 改进的冒泡排序算法
      **/
     public static void improvedBubbleSort(int[] src) {
-        if (src.length > 0) {
-            int length = src.length;
-            boolean flag = true;
-            for (int i = 1; i < length && flag; i++) {
-                flag = false;
-                for (int j = 0; j < length - i; j++) {
-                    if (src[j] > src[j + 1]) {
-                        int temp = src[j];
-                        src[j] = src[j + 1];
-                        src[j + 1] = temp;
-                        flag = true;
-                    }
+        if (src.length <= 0) {
+            return;
+        }
+        int length = src.length;
+        boolean flag = true;
+        for (int i = 1; i < length && flag; i++) {
+            flag = false;
+            for (int j = 0; j < length - i; j++) {
+                if (src[j] > src[j + 1]) {
+                    int temp = src[j];
+                    src[j] = src[j + 1];
+                    src[j + 1] = temp;
+                    flag = true;
                 }
             }
         }
@@ -87,12 +89,14 @@ public class Sort {
     private static int partition(int data[], int low, int high) {
         int key = data[low];
         while (low < high) {
-            while (low < high && data[high] > key) //从右往左
+            while (low < high && data[high] >= key) { //从右往左
                 high--;
+            }
             data[low] = data[high];
 
-            while (low < high && data[low] < key)  //从左往右
+            while (low < high && data[low] <= key) {  //从左往右
                 low++;
+            }
             data[high] = data[low];
         }
         data[low] = key;
